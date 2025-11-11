@@ -1142,7 +1142,7 @@
                             const form = e.target;
                     
                             // Use the full URL with protocol directly instead of form.action
-                            fetch("http://95.244.26.100/sendmail", {
+                            fetch("https://95.244.26.100/sendmail", {
                                 method: "POST",
                                 body: new FormData(form)
                             }).then(response => {
