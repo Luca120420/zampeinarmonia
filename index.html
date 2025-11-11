@@ -1146,12 +1146,12 @@
                                 body: new FormData(form)
                             }).then(response => {
                                 if (response.ok) {
-                                    alert("Prenotazione inviata con successo!");
+                                    alert("Prenotazione presa in carico con successo!");
                                 } else {
-                                    alert("Si è verificato un errore. Riprova più tardi.");
+                                    alert("Si è verificato un errore durante la fase di prenotazione. Riprova.");
                                 }
                             }).catch(() => {
-                                alert("Errore di rete. Controlla la connessione.");
+                                alert("Si è verificato un errore durante la fase di prenotazione. Controlla la tua connessione a internet.");
                             });
 
                             form.reset();
