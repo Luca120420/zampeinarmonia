@@ -1099,7 +1099,7 @@
                 <p>Prenota una consulenza oggi e fai il primo passo verso una relazione più felice, armoniosa e sana con il tuo cane.</p>
                 
                 <div class="booking-form">
-                    <form id="bookingForm" action="95.244.26.100/sendmail" method="POST">
+                    <form id="bookingForm" action="https://95.244.26.100/sendmail" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nome</label>
@@ -1140,21 +1140,22 @@
                         document.getElementById("bookingForm").addEventListener("submit", function(e) {
                             e.preventDefault();
                             const form = e.target;
-
-                            fetch(form.action, {
+                    
+                            // Use the full URL with protocol directly instead of form.action
+                            fetch("http://95.244.26.100/sendmail", {
                                 method: "POST",
                                 body: new FormData(form)
                             }).then(response => {
                                 if (response.ok) {
                                     alert("Prenotazione inviata con successo!");
+                                    form.reset(); // Move reset inside the success block
                                 } else {
                                     alert("Si è verificato un errore. Riprova più tardi.");
                                 }
-                            }).catch(() => {
+                            }).catch((error) => {
+                                console.error("Errore:", error); // Log the actual error
                                 alert("Errore di rete. Controlla la connessione.");
                             });
-
-                            form.reset();
                         });
                     </script>
 
